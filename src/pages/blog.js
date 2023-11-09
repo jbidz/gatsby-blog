@@ -2,24 +2,36 @@ import * as React from "react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { graphql } from "gatsby";
+import BlogPost from "../components/blogPost";
 
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      <ul>
-        {data.allFile.nodes.map((i) => (
-          <li>{i.name}</li>
-        ))}
-      </ul>
+      {data.allMdx.nodes.map((i) => (
+        <article key={i.id}>
+          {
+            <BlogPost
+              title={i.frontmatter.title}
+              date={i.frontmatter.date}
+              excerpt={i.excerpt}
+            />
+          }
+        </article>
+      ))}
     </Layout>
   );
 };
 
 export const query = graphql`
   query {
-    allFile {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
-        name
+        excerpt
+        frontmatter {
+          date(formatString: "MMMM, D, YYYY")
+          title
+        }
+        id
       }
     }
   }

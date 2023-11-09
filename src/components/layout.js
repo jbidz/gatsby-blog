@@ -13,7 +13,7 @@ const Layout = ({ pageTitle, children }) => {
   `);
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto px-8">
       <header className="py-8 text-5xl text-gray-900 font-black">
         {data.site.siteMetadata.title}
       </header>
@@ -37,7 +37,7 @@ const Layout = ({ pageTitle, children }) => {
         </ul>
       </nav>
       <main className="pb-10">
-        <h1 className="text-4xl mb-4 font-bold text-purple-800">{pageTitle}</h1>
+        <h1 className="text-4xl mb-6 font-bold text-purple-800">{pageTitle}</h1>
         {children}
       </main>
     </div>
