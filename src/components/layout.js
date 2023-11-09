@@ -18,7 +18,7 @@ const Layout = ({ pageTitle, children }) => {
           </li>
         </ul>
       </nav>
-      <main>
+      <main className="pb-10">
         <h1 className="text-4xl mb-4 font-black">{pageTitle}</h1>
         {children}
       </main>
