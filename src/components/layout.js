@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = (props) => {
+  const { pageTitle, children } = props;
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -20,17 +21,31 @@ const Layout = ({ pageTitle, children }) => {
       <nav className="py-6">
         <ul className="flex gap-5">
           <li>
-            <Link to="/" className="underline">
+            <Link
+              to="/"
+              className="text-blue-600"
+              activeClassName="bg-slate-200 py-2 px-3 rounded-md"
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className="underline">
+            <Link
+              to="/about"
+              className="text-blue-600"
+              activeClassName="bg-slate-200 py-2 px-3 rounded-md"
+              partiallyActive={true}
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to="/blog" className="underline">
+            <Link
+              to="/blog"
+              className="text-blue-600"
+              activeClassName="bg-slate-200 py-2 px-3 rounded-md"
+              partiallyActive={true}
+            >
               Blog
             </Link>
           </li>
