@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply bg-slate-50;
+  }
   p {
     @apply text-xl;
   }
